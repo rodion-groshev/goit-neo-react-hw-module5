@@ -27,7 +27,7 @@ const MovieCast = () => {
       }
     };
     getCast();
-  }, []);
+  }, [movieId]);
   return (
     <>
       {isLoading && <Loader />}

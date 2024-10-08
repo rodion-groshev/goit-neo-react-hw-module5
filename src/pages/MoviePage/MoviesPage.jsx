@@ -63,15 +63,7 @@ const MoviesPage = () => {
 
       {isLoading && <Loader />}
       {error && <ErrorMessage />}
-      {movies && (
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.id}>
-              <MovieList movie={movie} />
-            </li>
-          ))}
-        </ul>
-      )}
+      {movies && <MovieList movies={movies} />}
     </>
   );
 };

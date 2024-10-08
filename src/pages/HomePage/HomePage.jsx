@@ -31,15 +31,7 @@ const HomePage = () => {
       <h1>Trending today</h1>
       {isLoading && <Loader />}
       {error && <ErrorMessage />}
-      {movies && (
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.id}>
-              <MovieList movie={movie} />
-            </li>
-          ))}
-        </ul>
-      )}
+      {movies && <MovieList movies={movies} />}
     </div>
   );
 };
