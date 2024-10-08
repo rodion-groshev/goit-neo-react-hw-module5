@@ -1,0 +1,30 @@
+.detailsList {
+  display: flex;
+  list-style: none;
+}
+
+.title {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.textWrapper {
+  margin-left: 25px;
+}
+
+.subTitle {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.additionalList {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  padding: 10px;
+}

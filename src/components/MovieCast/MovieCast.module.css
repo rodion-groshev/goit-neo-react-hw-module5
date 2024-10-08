@@ -1,0 +1,10 @@
+.castList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  list-style: none;
+}
+
+.castImg {
+  border-radius: 15px;
+}

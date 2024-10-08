@@ -1,0 +1,10 @@
+.reviewItem {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.reviewText {
+  font-size: 14px;
+  padding: 10px;
+}
