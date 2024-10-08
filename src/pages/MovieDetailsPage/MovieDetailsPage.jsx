@@ -1,15 +1,10 @@
 import { Suspense, useEffect, useRef, useState } from "react";
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-  useParams,
-} from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovie } from "../../api/MovieApi";
-import css from "./MovieDetailsPage.module.css";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import DetailsList from "../../components/DetailsList/DetailsList";
+import AdditionalList from "../../components/AdditionalList/AdditionalList";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -43,43 +38,12 @@ const MovieDetailsPage = () => {
       <Link to={backPath.current}>Back</Link>
       {isLoading && <Loader />}
       {error && <ErrorMessage />}
-      {movie && (
-        <div>
-          <ul className={css.detailsList}>
-            <li>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                width={275}
-                height={400}
-                alt={movie.title}
-              ></img>
-            </li>
-            <div className={css.textWrapper}>
-              <li className={css.title}>
-                {movie.title} ({new Date(movie.release_date).getFullYear()})
-              </li>
-              <li>
-                <a href={movie.homepage}>Official website</a>
-              </li>
-              <li className={css.subTitle}>Overview</li>
-              <li>{movie.overview}</li>
-              <li className={css.subTitle}>Genres</li>
-              <li>{movie.genres.map((item) => item.name + " ")}</li>
-            </div>
-          </ul>
-          <ul className={css.additionalList}>
-            <li>
-              <NavLink to="cast">Cast</NavLink>
-            </li>
-            <li>
-              <NavLink to="reviews">Reviews</NavLink>
-            </li>
-          </ul>
-          <Suspense fallback="">
-            <Outlet />
-          </Suspense>
-        </div>
-      )}
+      {movie && <DetailsList movie={movie} />}
+      {movie && <AdditionalList />}
+
+      <Suspense fallback="">
+        <Outlet />
+      </Suspense>
     </>
   );
 };

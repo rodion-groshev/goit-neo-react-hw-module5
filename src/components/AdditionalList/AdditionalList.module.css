@@ -1,0 +1,8 @@
+.additionalList {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  padding: 10px;
+}
